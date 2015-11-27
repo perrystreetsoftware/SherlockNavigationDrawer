@@ -4,11 +4,11 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:0.4.+'
+    classpath 'com.android.tools.build:gradle:1.3.+'
   }
 }
 
-apply plugin: 'android-library'
+apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
 repositories {
@@ -19,13 +19,13 @@ repositories {
 }
 
 dependencies {
-  compile 'com.android.support:support-v4:13.0.0'
-  compile 'com.actionbarsherlock:actionbarsherlock:4.3.1'
+  compile 'com.android.support:support-v4:20.0.0'
+  compile project(':ActionBarSherlock')
 }
 
 android {
   compileSdkVersion 17
-  buildToolsVersion '17'
+  buildToolsVersion '23.0.1'
 
   defaultConfig {
     targetSdkVersion 17
@@ -37,6 +37,10 @@ android {
       java.srcDirs = ['src']
       res.srcDirs = ['res']
     }
+  }
+
+  lintOptions {
+    abortOnError false
   }
 }
 
